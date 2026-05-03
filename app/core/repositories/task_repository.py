@@ -26,10 +26,10 @@ class TaskRepository(BaseRepository[Task]):
         This supports the notification service logic.
         """
         from datetime import datetime, timedelta
-        
+
         now = datetime.utcnow()
         threshold = now + timedelta(minutes=within_minutes)
-        
+
         return (
             self.session.query(Task)
             .filter(Task.due_date.between(now, threshold))
