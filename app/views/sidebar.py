@@ -36,16 +36,16 @@ class Sidebar(QWidget):
 
         for txt, key in nav_items:
             btn = QPushButton(txt)
-            btn.setObjectName(f"nav-{key}")
+            btn.setObjectName(f"nav-btn")
             btn.setCheckable(True)
-            btn.setProperty("view_key", key)
+            btn.setProperty("key", key)
 
             if key == "dashboard":
                 btn.setChecked(True)
 
             self.group.addButton(btn)
             layout.addWidget(btn)
-            btn.clicked.connect(lambda k=key: self.nav_changed.emit(k))
+            btn.clicked.connect(lambda _, k=key: self.nav_changed.emit(k))
 
         layout.addStretch()
         self.setLayout(layout)

@@ -7,6 +7,10 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt
 from app.views.sidebar import Sidebar
+from app.core.database import SessionLocal
+from app.services.task_service import TaskService
+from app.viewmodels.task_vm import TaskViewModel
+from app.views.tasks.task_view import TasksView
 
 class MainWindow(QMainWindow):
     def __init__(self) -> None:
@@ -30,6 +34,10 @@ class MainWindow(QMainWindow):
         self.sidebar.nav_changed.connect(self._navigate)
         self._navigate("dashboard")
 
+        self.session = SessionLocal()
+        self.task_service = TaskService(self.session)
+        self.task_vm = TaskViewModel(self.task_service)
+
     def _navigate(self, key: str) -> None:
         if key not in self._view_cache:
             # Lazy load views on demand
@@ -39,9 +47,14 @@ class MainWindow(QMainWindow):
     
     def _build_view(self, key: str) -> QWidget:
         # Placeholder views for now
-        view = QWidget()
-        layout = QHBoxLayout(view)
-        label = QLabel(f"{key.capitalize()} View Coming Soon!")
-        label.setStyleSheet("font-size: 18px; color: #555;")
-        layout.addWidget(label, alignment=Qt.AlignCenter)
-        return view
+        match key:
+            case "dashboard":
+                return QLabel("Dashboard View (Coming Soon)", alignment=Qt.AlignCenter)
+            case "tasks":
+                return TasksView(self.task_vm)
+            case "calendar":
+                return QLabel("Calendar View (Coming Soon)", alignment=Qt.AlignCenter)
+            case "settings":
+                return QLabel("Settings View (Coming Soon)", alignment=Qt.AlignCenter)
+            case _:
+                return QLabel("Unknown View", alignment=Qt.AlignCenter)

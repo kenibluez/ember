@@ -29,3 +29,12 @@ QPushButton#nav-btn:checked {
     color: #FF6524;
     background-color: #2B2B2B;
 }
+
+QPushButton#primary {
+    background-color: #FF6524;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+}
