@@ -1,0 +1,31 @@
+QMainWindow, QWidget {
+    background-color: #111111;
+    color: #F2F2F2;
+    font-family: "Inter";
+}
+
+/* Sidebar styling */
+#sidebar {
+    background-color: #1C1C1C;
+    border-right: 1px solid #2B2B2B;
+    min-width: 200px;
+}
+
+QPushButton#nav-btn {
+    background-color: transparent;
+    color: #888888;
+    text-align: left;
+    padding: 12px 20px;
+    border: none;
+    font-weight: 500;
+}
+
+QPushButton#nav-btn:hover {
+    color: #F2F2F2;
+    background-color: #2B2B2B;
+}
+
+QPushButton#nav-btn:checked {
+    color: #FF6524;
+    background-color: #2B2B2B;
+}
