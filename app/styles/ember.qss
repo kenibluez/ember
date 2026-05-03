@@ -1,19 +1,27 @@
 QMainWindow, QWidget {
-    background-color: #111111;
-    color: #F2F2F2;
+    background-color: {VOID};
+    color: {SMOKE};
     font-family: "Inter";
 }
 
 /* Sidebar styling */
 #sidebar {
-    background-color: #1C1C1C;
-    border-right: 1px solid #2B2B2B;
+    background-color: {CHARCOAL};
+    border-right: 1px solid {ASH};
     min-width: 200px;
+}
+
+#sidebar-logo {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    color: {EMBER};
 }
 
 QPushButton#nav-btn {
     background-color: transparent;
-    color: #888888;
+    color: {CINDER};
     text-align: left;
     padding: 12px 20px;
     border: none;
@@ -21,20 +29,24 @@ QPushButton#nav-btn {
 }
 
 QPushButton#nav-btn:hover {
-    color: #F2F2F2;
-    background-color: #2B2B2B;
+    color: {SMOKE};
+    background-color: {ASH};
 }
 
 QPushButton#nav-btn:checked {
-    color: #FF6524;
-    background-color: #2B2B2B;
+    color: {EMBER};
+    background-color: {ASH};
 }
 
 QPushButton#primary {
-    background-color: #FF6524;
-    color: #FFFFFF;
+    background-color: {EMBER};
+    color: {WHITE};
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     font-weight: 600;
+}
+
+QPushButton#primary:hover {
+    background-color: {BURN};
 }

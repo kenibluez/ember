@@ -21,7 +21,7 @@ class Sidebar(QWidget):
         layout.setSpacing(5)
 
         logo = QLabel("🔥 Ember")
-        logo.setStyleSheet("font-size: 24px; font-weight: 600; margin-bottom: 20px; padding-left: 20px;")
+        logo.setObjectName("sidebar-logo")
         layout.addWidget(logo)
 
         self.group = QButtonGroup(self)
