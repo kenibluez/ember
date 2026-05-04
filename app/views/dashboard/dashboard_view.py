@@ -47,5 +47,5 @@ class DashboardView(QWidget):
         self.stat_total.set_value(stats.get("total", 0))
         self.stat_todo.set_value(stats.get("todo", 0))
         self.stat_progress.set_value(stats.get("in_progress", 0))
-        self.stat_done.set_value(stats.get("done", 0))
+        self.stat_done.set_value(stats.get("completed", 0))
         self.stat_due.set_value(stats.get("due_today", 0))

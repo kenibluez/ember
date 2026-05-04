@@ -318,7 +318,7 @@ QListWidget::item:hover {
     background-color: #2B2B2B;
 }
 
-QLabel#task-card {
+QWidget#task-card {
     background-color: #1C1C1C;
     border: none;
     border-radius: 12px;
@@ -351,7 +351,7 @@ QLabel#badge-todo {
     border-radius: 4px;
     font-size: 10px;
 }
-QLabel#badge-in-progress {
+QLabel#badge-in_progress {
     background-color: #FF6524;
     color: #111111;
     padding: 2px 8px;

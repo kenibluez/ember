@@ -28,7 +28,7 @@ def seed_data():
         Task(
             title="Draft UNIX vs Windows OS Abstraction Report",
             description="Focus on process creation and storage philosophies.",
-            status=TaskStatus.DONE,
+            status=TaskStatus.COMPLETED,
             priority=TaskPriority.HIGH,
             due_date=now - timedelta(days=2),
         ),

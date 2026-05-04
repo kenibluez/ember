@@ -1,6 +1,7 @@
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QHBoxLayout
 from PySide6.QtCore import Qt
 from app.core.schemas.task import TaskRead
+from app.core.models.task import TaskStatus
 
 class TaskCard(QWidget):
     """A simple card widget to display task information in a compact format."""
@@ -25,11 +26,20 @@ class TaskCard(QWidget):
         self.desc_lbl.setWordWrap(True)
 
         footer = QHBoxLayout()
+        
+        # Map task status to its corresponding QSS object name
+        status_map = {
+            TaskStatus.TODO: "badge-todo",
+            TaskStatus.IN_PROGRESS: "badge-in_progress",
+            TaskStatus.COMPLETED: "badge-completed",
+            TaskStatus.CANCELLED: "badge-cancelled"
+        }
+        
         self.status_lbl = QLabel(self.task.status.upper())
-        self.status_lbl.setObjectName(f"badge-{self.task.status.value}")
+        self.status_lbl.setObjectName(status_map.get(self.task.status, "badge-todo"))
 
         self.priority_lbl = QLabel(self.task.priority.upper())
-        self.priority_lbl.setObjectName(f"badge-outline")
+        self.priority_lbl.setObjectName("badge-outline")
 
         footer.addWidget(self.status_lbl)
         footer.addWidget(self.priority_lbl)
@@ -37,6 +47,6 @@ class TaskCard(QWidget):
 
         layout.addWidget(self.title_lbl)
         layout.addWidget(self.desc_lbl)
-        layout.addStrech()
+        layout.addStretch()
         layout.addLayout(footer)
 

@@ -4,7 +4,7 @@ from app.components.task_form import TaskForm
 from app.viewmodels.task_vm import TaskViewModel
 from app.views.tasks.list_view import TaskListView
 from app.views.tasks.table_view import TaskTableView
-from app.styles.theme import Colors
+from app.views.tasks.grid_view import TaskGridView
 
 class TasksView(QWidget):
     """Parent container for all task view modes (List, Table, Cards, Grid)."""
@@ -46,20 +46,23 @@ class TasksView(QWidget):
         self.stack = QStackedWidget()
         self.list_view  = TaskListView()
         self.table_view = TaskTableView()
+        self.grid_view = TaskGridView()
 
         self.stack.addWidget(self.list_view)  # Index 0: List
         self.stack.addWidget(self.table_view) # Index 1: Table
+        self.stack.addWidget(self.grid_view)  # Index 2: Grid
 
         layout.addLayout(header)
         layout.addWidget(self.stack)
 
     def _on_mode_switched(self, mode: str) -> None:
-        mapping = {"list": 0, "table": 1, "cards": 2, "grid": 3}
+        mapping = {"list": 0, "table": 1, "grid": 2}
         self.stack.setCurrentIndex(mapping.get(mode, 0))
 
     def _on_tasks_updated(self, tasks: list) -> None:
         self.list_view.update_tasks(tasks)
         self.table_view.update_tasks(tasks)
+        self.grid_view.update_tasks(tasks)
 
     def _open_task_form(self) -> None:
         form = TaskForm(self)

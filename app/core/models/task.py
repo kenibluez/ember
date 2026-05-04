@@ -13,8 +13,8 @@ class TaskStatus(StrEnum):
     """
     TODO = "TODO"
     IN_PROGRESS = "IN_PROGRESS"
-    DONE = "DONE"
-    CANCELLED = "CANCELED"
+    COMPLETED = "COMPLETED"
+    CANCELLED = "CANCELLED"
 
 class TaskPriority(StrEnum):
     """

@@ -16,7 +16,7 @@ class Colors:
     TODO        = "#888888"   # Not started
     IN_PROGRESS = "#FF6524"   # In progress
     CANCELLED   = "#E8311A"   # Cancelled
-    DONE        = "#3A3A3A"   # Completed (dimmed intentionally)
+    COMPLETED   = "#3A3A3A"   # Completed (dimmed intentionally)
 
     # Utilities
     WHITE       = "#FFFFFF"

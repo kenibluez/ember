@@ -9,9 +9,9 @@ def test_create_task(task_service):
     assert task.title == "Write tests"
     assert task.status == TaskStatus.TODO
 
-def test_mark_as_done(task_service):
+def test_mark_as_completed(task_service):
     data = TaskCreate(title="Finish feature")
     task = task_service.create(data)
 
-    updated = task_service.mark_as(task.id, TaskStatus.DONE)
-    assert updated.status == TaskStatus.DONE
+    updated = task_service.mark_as(task.id, TaskStatus.COMPLETED)
+    assert updated.status == TaskStatus.COMPLETED

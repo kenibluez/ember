@@ -33,7 +33,7 @@ class TaskTableModel(QAbstractTableModel):
             if col == 0: # Status colors
                 if task.status == TaskStatus.TODO: return QColor(Colors.CINDER)
                 if task.status == TaskStatus.IN_PROGRESS: return QColor(Colors.EMBER)
-                if task.status == TaskStatus.DONE: return QColor(Colors.DONE)
+                if task.status == TaskStatus.COMPLETED: return QColor(Colors.COMPLETED)
                 if task.status == TaskStatus.CANCELLED: return QColor(Colors.BURN)
             if col == 2: # Priority colors (example)
                 if task.priority == TaskPriority.HIGH: return QColor(Colors.BURN)

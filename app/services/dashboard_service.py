@@ -16,7 +16,7 @@ class DashboardService:
             "total": len(tasks),
             "todo": sum(1 for t in tasks if t.status == TaskStatus.TODO),
             "in_progress": sum(1 for t in tasks if t.status == TaskStatus.IN_PROGRESS),
-            "done": sum(1 for t in tasks if t.status == TaskStatus.DONE),
+            "completed": sum(1 for t in tasks if t.status == TaskStatus.COMPLETED),
             "cancelled": sum(1 for t in tasks if t.status == TaskStatus.CANCELLED),
             "due_today": sum(
                 1 for t in tasks if t.due_date and t.due_date.date() == date.today()

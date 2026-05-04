@@ -33,6 +33,6 @@ class TaskRepository(BaseRepository[Task]):
         return (
             self.session.query(Task)
             .filter(Task.due_date.between(now, threshold))
-            .filter(Task.status != TaskStatus.DONE)
+            .filter(Task.status != TaskStatus.COMPLETED)
             .all()
         )
