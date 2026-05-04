@@ -13,11 +13,12 @@ class DayCell(QWidget):
         self.day_number = day_number
         self.events: list = []
         self.setObjectName("day-cell")
-        self.setMinimumSize(100, 120)  # Increased height
+        self.setMinimumWidth(100)
+        self.setMinimumHeight(150) # Increased for better multi-line support
 
         self.lay = QVBoxLayout(self)
-        self.lay.setContentsMargins(8, 8, 8, 8)
-        self.lay.setSpacing(6)
+        self.lay.setContentsMargins(10, 10, 10, 10)
+        self.lay.setSpacing(8)
         self.lay.setAlignment(Qt.AlignmentFlag.AlignTop)
 
         self.day_label = QLabel(str(day_number) if day_number != 0 else "")
@@ -36,6 +37,8 @@ class DayCell(QWidget):
         dot = QFrame()
         dot.setObjectName("dot")
         dot.setFixedSize(8, 8)
+        # Fallback inline style to ensure visibility
+        dot.setStyleSheet(f"background-color: {Colors.EMBER}; border-radius: 4px;")
         layout.addWidget(dot)
 
         title_label = QLabel(title)
