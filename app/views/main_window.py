@@ -2,10 +2,13 @@ from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QHBoxLayout, QLabel, QMainWindow, QStackedWidget, QWidget
 
 from app.core.database import SessionLocal
+from app.services.calendar_service import CalendarService
 from app.services.dashboard_service import DashboardService
 from app.services.task_service import TaskService
+from app.viewmodels.calendar_vm import CalendarViewModel
 from app.viewmodels.dashboard_vm import DashboardViewModel
 from app.viewmodels.task_vm import TaskViewModel
+from app.views.calendar.calendar_view import CalendarView
 from app.views.dashboard.dashboard_view import DashboardView
 from app.views.sidebar import Sidebar
 from app.views.tasks.task_view import TasksView
@@ -23,6 +26,8 @@ class MainWindow(QMainWindow):
         self.task_vm = TaskViewModel(self.task_service)
         self.dashboard_service = DashboardService(self.session)
         self.dashboard_vm = DashboardViewModel(self.dashboard_service)
+        self.calendar_service = CalendarService(self.session)
+        self.calendar_vm = CalendarViewModel(self.calendar_service)
 
         root = QWidget()
         layout = QHBoxLayout(root)
@@ -54,10 +59,7 @@ class MainWindow(QMainWindow):
             case "tasks":
                 return TasksView(self.task_vm)
             case "calendar":
-                return QLabel(
-                    "Calendar View (Coming Soon)",
-                    alignment=Qt.AlignmentFlag.AlignCenter,
-                )
+                return CalendarView(self.calendar_vm)
             case "settings":
                 return QLabel(
                     "Settings View (Coming Soon)",
