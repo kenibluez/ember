@@ -31,6 +31,7 @@ class MonthView(QWidget):
         month_days = cal.monthdayscalendar(now.year, now.month)
 
         for row, week in enumerate(month_days):
+            self.lay.setRowStretch(row + 1, 1)
             for col, day in enumerate(week):
                 cell = DayCell(day)
                 if day != 0:

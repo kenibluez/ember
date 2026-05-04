@@ -1,5 +1,6 @@
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QHBoxLayout, QLabel, QVBoxLayout, QWidget
+from PySide6.QtGui import QPainter
+from PySide6.QtWidgets import QHBoxLayout, QLabel, QStyle, QStyleOption, QVBoxLayout, QWidget, QFrame
 
 from app.styles.theme import Colors
 
@@ -12,7 +13,7 @@ class DayCell(QWidget):
         self.day_number = day_number
         self.events: list = []
         self.setObjectName("day-cell")
-        self.setMinimumSize(100, 100)
+        self.setMinimumSize(100, 120)  # Increased height
 
         self.lay = QVBoxLayout(self)
         self.lay.setContentsMargins(8, 8, 8, 8)
@@ -32,7 +33,7 @@ class DayCell(QWidget):
         layout.setSpacing(8)
         layout.setAlignment(Qt.AlignmentFlag.AlignTop)
 
-        dot = QWidget()
+        dot = QFrame()
         dot.setObjectName("dot")
         dot.setFixedSize(8, 8)
         layout.addWidget(dot)
@@ -40,7 +41,12 @@ class DayCell(QWidget):
         title_label = QLabel(title)
         title_label.setObjectName("event-title")
         title_label.setWordWrap(True)
-        # Avoid explicit styling here to allow QSS to take over
         layout.addWidget(title_label, stretch=1)
 
         self.lay.addWidget(container)
+
+    def paintEvent(self, event) -> None:
+        opt = QStyleOption()
+        opt.initFrom(self)
+        p = QPainter(self)
+        self.style().drawPrimitive(QStyle.PrimitiveElement.PE_Widget, opt, p, self)

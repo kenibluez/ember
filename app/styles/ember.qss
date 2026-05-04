@@ -165,7 +165,6 @@ QWidget#day-cell:hover {
 
 #dot {
     background-color: {EMBER};
-    border: 1px solid {WHITE};
     border-radius: 4px;
 }
 
