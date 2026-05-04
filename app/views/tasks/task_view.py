@@ -31,7 +31,7 @@ class TasksView(QWidget):
         header.addWidget(title)
         header.addSpacing(20)
 
-        self.switcher = ViewSwitcher(["list", "table", "cards", "grid"])
+        self.switcher = ViewSwitcher(["list", "table", "grid"])
         self.switcher.view_changed.connect(self._on_mode_switched)
         header.addWidget(self.switcher)
         
