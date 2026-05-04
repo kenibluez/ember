@@ -62,7 +62,8 @@ QPushButton#nav-btn:checked {
 
 /* Primary Action Button */
 QPushButton#primary {
-    background-color: #FF6524;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,
+                                 stop: 0 #FF6524, stop: 1.0 #E8311A);
     color: #FFFFFF;
     padding: 10px 24px;
     border-radius: 6px;
@@ -118,7 +119,8 @@ QPushButton#view-switcher-btn:checked {
 
 /* Stat Card */
 QWidget#stat-card {
-    background-color: #E8311A;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,
+                                 stop: 0 #FF6524, stop: 1.0 #E8311A);
     border: none;
     border-radius: 12px;
 }
