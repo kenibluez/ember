@@ -1,17 +1,17 @@
 QMainWindow {
-    background-color: {VOID};
-    color: {SMOKE};
+    background-color: #111111;
+    color: #F2F2F2;
     font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 QWidget {
-    color: {SMOKE};
+    color: #F2F2F2;
 }
 
 /* Sidebar styling */
 #sidebar {
-    background-color: {CHARCOAL};
-    border-right: 1px solid {ASH};
+    background-color: #1C1C1C;
+    border-right: 1px solid #2B2B2B;
     min-width: 220px;
 }
 
@@ -20,12 +20,12 @@ QWidget {
     font-weight: 700;
     margin-bottom: 20px;
     padding: 30px 20px;
-    color: {EMBER};
+    color: #FF6524;
 }
 
 QPushButton#nav-btn {
     background-color: transparent;
-    color: {CINDER};
+    color: #888888;
     text-align: left;
     padding: 12px 24px;
     border: none;
@@ -35,20 +35,20 @@ QPushButton#nav-btn {
 }
 
 QPushButton#nav-btn:hover {
-    color: {SMOKE};
-    background-color: {ASH};
+    color: #F2F2F2;
+    background-color: #2B2B2B;
 }
 
 QPushButton#nav-btn:checked {
-    color: {EMBER};
-    background-color: {VOID};
-    border-left: 3px solid {EMBER};
+    color: #FF6524;
+    background-color: #111111;
+    border-left: 3px solid #FF6524;
 }
 
 /* Primary Action Button */
 QPushButton#primary {
-    background-color: {EMBER};
-    color: {WHITE};
+    background-color: #FF6524;
+    color: #FFFFFF;
     padding: 10px 24px;
     border: none;
     border-radius: 6px;
@@ -57,19 +57,19 @@ QPushButton#primary {
 }
 
 QPushButton#primary:hover {
-    background-color: {BURN};
+    background-color: #E8311A;
 }
 
 QPushButton#primary:pressed {
-    background-color: {BURN};
+    background-color: #E8311A;
     padding-top: 11px;
     padding-bottom: 9px;
 }
 
 /* Secondary/Ghost Button */
 QPushButton#secondary {
-    background-color: {ASH};
-    color: {SMOKE};
+    background-color: #2B2B2B;
+    color: #F2F2F2;
     padding: 10px 24px;
     border: none;
     border-radius: 6px;
@@ -78,14 +78,14 @@ QPushButton#secondary {
 }
 
 QPushButton#secondary:hover {
-    background-color: {CHARCOAL};
-    border: 1px solid {ASH};
+    background-color: #1C1C1C;
+    border: 1px solid #2B2B2B;
 }
 
 /* View Switcher */
 #view-switcher-btn {
-    background-color: {ASH};
-    color: {CINDER};
+    background-color: #2B2B2B;
+    color: #888888;
     padding: 8px 16px;
     border: none;
     border-radius: 4px;
@@ -95,18 +95,18 @@ QPushButton#secondary:hover {
 }
 
 #view-switcher-btn:hover {
-    background-color: {CHARCOAL};
-    color: {SMOKE};
+    background-color: #1C1C1C;
+    color: #F2F2F2;
 }
 
 #view-switcher-btn:checked {
-    background-color: {EMBER};
-    color: {WHITE};
+    background-color: #FF6524;
+    color: #FFFFFF;
 }
 
 /* Stat Card */
 QWidget#stat-card {
-    background-color: {BURN};
+    background-color: #E8311A;
     border: none;
     border-radius: 12px;
 }
@@ -119,13 +119,13 @@ QWidget#stat-card {
 #stat-value {
     font-size: 36px;
     font-weight: 800;
-    color: {WHITE};
+    color: #FFFFFF;
 }
 
 #stat-title {
     font-size: 11px;
     font-weight: 700;
-    color: {SMOKE};
+    color: #F2F2F2;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     opacity: 0.9;
@@ -133,30 +133,30 @@ QWidget#stat-card {
 
 /* Calendar Components */
 QWidget#day-cell {
-    background-color: {CHARCOAL};
-    border: 1px solid {ASH};
+    background-color: #1C1C1C;
+    border: 1px solid #2B2B2B;
     border-radius: 4px;
 }
 
 QWidget#day-cell:hover {
-    border: 1px solid {EMBER};
+    border: 1px solid #FF6524;
 }
 
 #day-number {
     font-size: 13px;
     font-weight: 600;
-    color: {CINDER};
+    color: #888888;
     background: transparent;
 }
 
 #day-number[today="true"] {
-    color: {EMBER};
+    color: #FF6524;
     font-weight: 800;
 }
 
 #calendar-header-label {
     font-weight: 700;
-    color: {CINDER};
+    color: #888888;
     padding: 12px;
     text-transform: uppercase;
     font-size: 10px;
@@ -164,8 +164,8 @@ QWidget#day-cell:hover {
 }
 
 #dot {
-    background-color: {EMBER};
-    border: 1px solid {WHITE};
+    background-color: #FF6524;
+    border: 1px solid #FFFFFF;
     border-radius: 4px;
 }
 
@@ -175,47 +175,47 @@ QWidget#day-cell:hover {
 
 #event-title {
     background: transparent;
-    color: {SMOKE};
+    color: #F2F2F2;
     font-size: 11px;
     font-weight: 500;
 }
 
 /* Forms & Inputs */
 QLineEdit, QTextEdit, QComboBox {
-    background-color: {ASH};
-    border: 1px solid {ASH};
+    background-color: #2B2B2B;
+    border: 1px solid #2B2B2B;
     border-radius: 6px;
     padding: 8px 12px;
-    color: {SMOKE};
-    selection-background-color: {EMBER};
+    color: #F2F2F2;
+    selection-background-color: #FF6524;
 }
 
 QLineEdit:focus, QTextEdit:focus, QComboBox:focus {
-    border: 1px solid {EMBER};
+    border: 1px solid #FF6524;
 }
 
 QLabel#form-label {
     font-weight: 600;
-    color: {CINDER};
+    color: #888888;
     margin-bottom: 4px;
 }
 
 /* ScrollBars */
 QScrollBar:vertical {
     border: none;
-    background: {VOID};
+    background: #111111;
     width: 8px;
     margin: 0px;
 }
 
 QScrollBar::handle:vertical {
-    background: {ASH};
+    background: #2B2B2B;
     min-height: 20px;
     border-radius: 4px;
 }
 
 QScrollBar::handle:vertical:hover {
-    background: {CINDER};
+    background: #888888;
 }
 
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
@@ -224,44 +224,44 @@ QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
 
 /* Tables */
 QTableView, QTableWidget {
-    background-color: {VOID};
-    alternate-background-color: {CHARCOAL};
+    background-color: #111111;
+    alternate-background-color: #1C1C1C;
     border: none;
-    gridline-color: {ASH};
-    color: {SMOKE};
+    gridline-color: #2B2B2B;
+    color: #F2F2F2;
 }
 
 QHeaderView::section {
-    background-color: {CHARCOAL};
-    color: {CINDER};
+    background-color: #1C1C1C;
+    color: #888888;
     padding: 10px;
     border: none;
-    border-bottom: 1px solid {ASH};
+    border-bottom: 1px solid #2B2B2B;
     font-weight: 600;
 }
 
 /* List Widgets */
 QListWidget {
-    background-color: {VOID};
+    background-color: #111111;
     border: none;
     outline: none;
     padding: 5px;
 }
 
 QListWidget::item {
-    background-color: {CHARCOAL};
-    color: {SMOKE};
+    background-color: #1C1C1C;
+    color: #F2F2F2;
     padding: 12px;
     border-radius: 8px;
     margin-bottom: 8px;
-    border: 1px solid {ASH};
+    border: 1px solid #2B2B2B;
 }
 
 QListWidget::item:selected {
-    border: 1px solid {EMBER};
-    background-color: {ASH};
+    border: 1px solid #FF6524;
+    background-color: #2B2B2B;
 }
 
 QListWidget::item:hover {
-    background-color: {ASH};
+    background-color: #2B2B2B;
 }

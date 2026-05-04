@@ -1,7 +1,14 @@
-from PySide6.QtWidgets import QStackedWidget, QVBoxLayout, QWidget, QHBoxLayout, QLabel, QScrollArea
-from app.styles.theme import Colors
+from PySide6.QtWidgets import (
+    QHBoxLayout,
+    QLabel,
+    QScrollArea,
+    QStackedWidget,
+    QVBoxLayout,
+    QWidget,
+)
 
 from app.components.view_switcher import ViewSwitcher
+from app.styles.theme import Colors
 from app.viewmodels.calendar_vm import CalendarViewModel
 from app.views.calendar.month_view import MonthView
 
@@ -23,7 +30,9 @@ class CalendarView(QWidget):
         # Header
         header_lay = QHBoxLayout()
         header = QLabel("Calendar")
-        header.setStyleSheet(f"font-size: 28px; font-weight: 700; color: {Colors.SMOKE};")
+        header.setStyleSheet(
+            f"font-size: 28px; font-weight: 700; color: {Colors.SMOKE};"
+        )
         header_lay.addWidget(header)
         header_lay.addStretch()
 
@@ -31,14 +40,14 @@ class CalendarView(QWidget):
         self.switcher = ViewSwitcher(["month", "week", "day", "year"])
         self.switcher.view_changed.connect(self._on_mode_switched)
         header_lay.addWidget(self.switcher)
-        
+
         layout.addLayout(header_lay)
 
         # Scroll Area for the View Stack
-        self.scroll = QScrollArea()
-        self.scroll.setWidgetResizable(True)
-        self.scroll.setFrameShape(QScrollArea.Shape.NoFrame)
-        self.scroll.setStyleSheet(f"background-color: {Colors.VOID};")
+        self.scrollable_area = QScrollArea()
+        self.scrollable_area.setWidgetResizable(True)
+        self.scrollable_area.setFrameShape(QScrollArea.Shape.NoFrame)
+        self.scrollable_area.setStyleSheet(f"background-color: {Colors.VOID};")
 
         # Stack
         self.stack = QStackedWidget()
@@ -47,9 +56,9 @@ class CalendarView(QWidget):
 
         # Placeholders for the other views
         self.stack.addWidget(self.month_view)
-        
-        self.scroll.setWidget(self.stack)
-        layout.addWidget(self.scroll)
+
+        self.scrollable_area.setWidget(self.stack)
+        layout.addWidget(self.scrollable_area)
 
     def _on_mode_switched(self, mode: str) -> None:
         # Extend mapping as other views are added
