@@ -172,7 +172,7 @@ QWidget#day-cell:hover {
 
 #dot {
     background-color: #FF6524;
-    border: 1px solid #FFFFFF;
+    border: none;
     border-radius: 4px;
 }
 
@@ -215,18 +215,35 @@ QScrollBar:vertical {
     margin: 0px;
 }
 
+QScrollBar:horizontal {
+    border: none;
+    background: #111111;
+    height: 8px;
+    margin: 0px;
+}
+
 QScrollBar::handle:vertical {
     background: #2B2B2B;
     min-height: 20px;
     border-radius: 4px;
 }
 
-QScrollBar::handle:vertical:hover {
+QScrollBar::handle:horizontal {
+    background: #2B2B2B;
+    min-width: 20px;
+    border-radius: 4px;
+}
+
+QScrollBar::handle:vertical:hover, QScrollBar::handle:horizontal:hover {
     background: #888888;
 }
 
 QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
     height: 0px;
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0px;
 }
 
 /* Tables */
