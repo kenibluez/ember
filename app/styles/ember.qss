@@ -51,7 +51,7 @@ QPushButton#primary:hover {
     background-color: {BURN};
 }
 
-QWidget#stat-card {
+#stat-card {
     background-color: {BURN};
     border-radius: 10px;
     padding: 16px;

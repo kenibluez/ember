@@ -1,11 +1,6 @@
-from PySide6.QtWidgets import (
-    QWidget,
-    QVBoxLayout,
-    QPushButton,
-    QLabel,
-    QButtonGroup
-)
 from PySide6.QtCore import Qt, Signal
+from PySide6.QtWidgets import QButtonGroup, QLabel, QPushButton, QVBoxLayout, QWidget
+
 
 class Sidebar(QWidget):
     nav_changed = Signal(str)
@@ -36,7 +31,7 @@ class Sidebar(QWidget):
 
         for txt, key in nav_items:
             btn = QPushButton(txt)
-            btn.setObjectName(f"nav-btn")
+            btn.setObjectName("nav-btn")
             btn.setCheckable(True)
             btn.setProperty("key", key)
 

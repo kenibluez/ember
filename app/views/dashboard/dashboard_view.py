@@ -1,8 +1,7 @@
-from app.viewmodels.dashboard_vm import DashboardViewModel
-from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QGridLayout, QLabel, QVBoxLayout, QWidget
 
 from app.components.stat_widget import StatWidget
+from app.viewmodels.dashboard_vm import DashboardViewModel
 
 
 class DashboardView(QWidget):
