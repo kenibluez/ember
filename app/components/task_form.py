@@ -62,7 +62,7 @@ class TaskForm(QDialog):
         btns.setSpacing(12)
         
         self.cancel_btn = QPushButton("Cancel")
-        self.cancel_btn.setObjectName("secondary")
+        self.cancel_btn.setObjectName("cancel")
         self.cancel_btn.clicked.connect(self.reject)
         
         self.save_btn = QPushButton("Ignite")
