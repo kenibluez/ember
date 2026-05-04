@@ -12,8 +12,7 @@ class DayCell(QWidget):
         self.day_number = day_number
         self.events: list = []
         self.setObjectName("day-cell")
-        self.setMinimumWidth(100)
-        self.setMinimumHeight(100)
+        self.setMinimumSize(100, 100)
 
         self.lay = QVBoxLayout(self)
         self.lay.setContentsMargins(8, 8, 8, 8)
@@ -27,18 +26,21 @@ class DayCell(QWidget):
     def add_event_dot(self, title: str) -> None:
         """Adds tiny indicator for event"""
         container = QWidget()
+        container.setObjectName("event-container")
         layout = QHBoxLayout(container)
         layout.setContentsMargins(0, 0, 0, 0)
         layout.setSpacing(8)
         layout.setAlignment(Qt.AlignmentFlag.AlignTop)
 
-        dot = QLabel("")
+        dot = QWidget()
         dot.setObjectName("dot")
+        dot.setFixedSize(8, 8)
         layout.addWidget(dot)
 
         title_label = QLabel(title)
+        title_label.setObjectName("event-title")
         title_label.setWordWrap(True)
-        title_label.setStyleSheet(f"font-size: 11px; color: {Colors.SMOKE}; font-weight: 500;")
+        # Avoid explicit styling here to allow QSS to take over
         layout.addWidget(title_label, stretch=1)
 
         self.lay.addWidget(container)
