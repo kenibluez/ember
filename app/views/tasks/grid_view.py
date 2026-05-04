@@ -15,15 +15,14 @@ class TaskGridView(QWidget):
 
         # Scroll Area Setup
         self.scrollable = QScrollArea()
-        self.scrollable.setStyleSheet("""
-            background: transparent;
-        """)
+        self.scrollable.setObjectName("grid-container")
         self.scrollable.setWidgetResizable(True)
         self.scrollable.setFrameShape(QScrollArea.Shape.NoFrame)
         self.scrollable.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
 
         # Container for the Grid
         self.container = QWidget()
+        self.container.setObjectName("grid-container") 
         self.grid = QGridLayout(self.container)
         self.grid.setSpacing(20)
         self.grid.setAlignment(Qt.AlignmentFlag.AlignTop | Qt.AlignmentFlag.AlignLeft)

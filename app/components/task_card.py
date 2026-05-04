@@ -1,4 +1,5 @@
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QHBoxLayout
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QHBoxLayout, QStyle, QStyleOption
+from PySide6.QtGui import QPainter
 from PySide6.QtCore import Qt
 from app.core.schemas.task import TaskRead
 from app.core.models.task import TaskStatus
@@ -9,8 +10,15 @@ class TaskCard(QWidget):
     def __init__(self, task: TaskRead, parent=None) -> None:
         super().__init__(parent)
         self.task = task
-        self.setObjectName("task-card") 
+        self.setObjectName("task-card")
         self._setup_ui()
+
+    def paintEvent(self, event) -> None:
+        """Required for QSS background-color/border to work on custom QWidget subclasses."""
+        opt = QStyleOption()
+        opt.initFrom(self)
+        p = QPainter(self)
+        self.style().drawPrimitive(QStyle.PrimitiveElement.PE_Widget, opt, p, self)
 
     def _setup_ui(self) -> None:
         layout = QVBoxLayout(self)
@@ -26,20 +34,21 @@ class TaskCard(QWidget):
         self.desc_lbl.setWordWrap(True)
 
         footer = QHBoxLayout()
-        
-        # Map task status to its corresponding QSS object name
+
         status_map = {
-            TaskStatus.TODO: "badge-todo",
-            TaskStatus.IN_PROGRESS: "badge-in_progress",
-            TaskStatus.COMPLETED: "badge-completed",
-            TaskStatus.CANCELLED: "badge-cancelled"
+            "todo": "badge-todo",
+            "in_progress": "badge-in_progress",
+            "completed": "badge-completed",
+            "cancelled": "badge-cancelled",
         }
-        
+
         self.status_lbl = QLabel(self.task.status.upper())
-        self.status_lbl.setObjectName(status_map.get(self.task.status, "badge-todo"))
+        self.status_lbl.setObjectName(status_map.get(self.task.status.lower(), "badge-todo"))
+        self.status_lbl.setFixedHeight(20)
 
         self.priority_lbl = QLabel(self.task.priority.upper())
         self.priority_lbl.setObjectName("badge-outline")
+        self.priority_lbl.setFixedHeight(20)
 
         footer.addWidget(self.status_lbl)
         footer.addWidget(self.priority_lbl)
@@ -49,4 +58,3 @@ class TaskCard(QWidget):
         layout.addWidget(self.desc_lbl)
         layout.addStretch()
         layout.addLayout(footer)
-
