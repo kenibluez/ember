@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QStackedWidget, QVBoxLayout, QWidget, QHBoxLayout, QLabel
+from PySide6.QtWidgets import QStackedWidget, QVBoxLayout, QWidget, QHBoxLayout, QLabel, QScrollArea
 from app.styles.theme import Colors
 
 from app.components.view_switcher import ViewSwitcher
@@ -34,17 +34,22 @@ class CalendarView(QWidget):
         
         layout.addLayout(header_lay)
 
+        # Scroll Area for the View Stack
+        self.scroll = QScrollArea()
+        self.scroll.setWidgetResizable(True)
+        self.scroll.setFrameShape(QScrollArea.Shape.NoFrame)
+        self.scroll.setStyleSheet(f"background-color: {Colors.VOID};")
+
         # Stack
         self.stack = QStackedWidget()
+        self.stack.setStyleSheet(f"background-color: {Colors.VOID};")
         self.month_view = MonthView()
 
-        # Placeholders for the other views (to be built similarly to MonthView)
-        # self.week_view = WeekView()
-        # self.day_view = DayView()
-        # self.year_view = YearView()
-
+        # Placeholders for the other views
         self.stack.addWidget(self.month_view)
-        layout.addWidget(self.stack)
+        
+        self.scroll.setWidget(self.stack)
+        layout.addWidget(self.scroll)
 
     def _on_mode_switched(self, mode: str) -> None:
         # Extend mapping as other views are added

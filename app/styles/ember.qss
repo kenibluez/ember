@@ -47,7 +47,8 @@ QPushButton#nav-btn:checked {
 
 /* Primary Action Button */
 QPushButton#primary {
-    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 {BURN}, stop:1 {EMBER});
+    background-color: {EMBER};
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 {BURN}, stop:1 {EMBER});
     color: {WHITE};
     padding: 10px 24px;
     border: none;
@@ -57,7 +58,8 @@ QPushButton#primary {
 }
 
 QPushButton#primary:hover {
-    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 {EMBER}, stop:1 {BURN});
+    background-color: {BURN};
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 {EMBER}, stop:1 {BURN});
 }
 
 QPushButton#primary:pressed {
@@ -100,13 +102,15 @@ QPushButton#secondary:hover {
 }
 
 #view-switcher-btn:checked {
-    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 {BURN}, stop:1 {EMBER});
+    background-color: {EMBER};
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 {BURN}, stop:1 {EMBER});
     color: {WHITE};
 }
 
 /* Stat Card */
 QWidget#stat-card {
-    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 {EMBER}, stop:1 {BURN});
+    background-color: {BURN};
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 {EMBER}, stop:1 {BURN});
     border: none;
     border-radius: 12px;
 }
@@ -165,6 +169,7 @@ QWidget#day-cell:hover {
 
 #dot {
     background-color: {EMBER};
+    border: 1px solid {WHITE};
     border-radius: 4px;
 }
 
