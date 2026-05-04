@@ -1,9 +1,10 @@
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QStackedWidget, QPushButton
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout, QStackedWidget, QPushButton, QLabel
 from app.components.view_switcher import ViewSwitcher
 from app.components.task_form import TaskForm
 from app.viewmodels.task_vm import TaskViewModel
 from app.views.tasks.list_view import TaskListView
 from app.views.tasks.table_view import TaskTableView
+from app.styles.theme import Colors
 
 class TasksView(QWidget):
     """Parent container for all task view modes (List, Table, Cards, Grid)."""
@@ -19,19 +20,26 @@ class TasksView(QWidget):
 
     def _setup_ui(self) -> None:
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(30, 30, 30, 30)
+        layout.setContentsMargins(40, 40, 40, 40)
+        layout.setSpacing(20)
 
-        # Header: Switcher + Add Button
+        # Header: Title + Switcher + Add Button
         header = QHBoxLayout()
+        
+        title = QLabel("Tasks")
+        title.setStyleSheet(f"font-size: 28px; font-weight: 700; color: {Colors.SMOKE};")
+        header.addWidget(title)
+        header.addSpacing(20)
+
         self.switcher = ViewSwitcher(["list", "table", "cards", "grid"])
         self.switcher.view_changed.connect(self._on_mode_switched)
+        header.addWidget(self.switcher)
+        
+        header.addStretch()
 
         add_btn = QPushButton("+ Ignite Task")
         add_btn.setObjectName("primary") # Styled in ember.qss
         add_btn.clicked.connect(self._open_task_form)
-
-        header.addWidget(self.switcher)
-        header.addStretch()
         header.addWidget(add_btn)
 
         # View Stack

@@ -36,6 +36,8 @@ class MainWindow(QMainWindow):
 
         self.sidebar = Sidebar()
         self.stack = QStackedWidget()
+        self.stack.setObjectName("main-stack")
+        self.stack.setStyleSheet(f"background-color: {Colors.VOID};")
 
         layout.addWidget(self.sidebar)
         layout.addWidget(self.stack, stretch=1)

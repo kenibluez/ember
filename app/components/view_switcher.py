@@ -11,7 +11,12 @@ class ViewSwitcher(QWidget):
 
         for mode in modes:
             btn = QPushButton(mode.capitalize())
+            btn.setObjectName("view-switcher-btn")
             btn.setCheckable(True)
             self.group.addButton(btn)
             layout.addWidget(btn)
             btn.clicked.connect(lambda _, m=mode: self.view_changed.emit(m))
+
+        # Default to first mode being checked
+        if modes:
+            self.group.buttons()[0].setChecked(True)

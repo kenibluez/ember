@@ -1,4 +1,5 @@
-from PySide6.QtWidgets import QStackedWidget, QVBoxLayout, QWidget
+from PySide6.QtWidgets import QStackedWidget, QVBoxLayout, QWidget, QHBoxLayout, QLabel
+from app.styles.theme import Colors
 
 from app.components.view_switcher import ViewSwitcher
 from app.viewmodels.calendar_vm import CalendarViewModel
@@ -16,12 +17,22 @@ class CalendarView(QWidget):
 
     def _setup_ui(self) -> None:
         layout = QVBoxLayout(self)
-        layout.setContentsMargins(30, 30, 30, 30)
+        layout.setContentsMargins(40, 40, 40, 40)
+        layout.setSpacing(20)
+
+        # Header
+        header_lay = QHBoxLayout()
+        header = QLabel("Calendar")
+        header.setStyleSheet(f"font-size: 28px; font-weight: 700; color: {Colors.SMOKE};")
+        header_lay.addWidget(header)
+        header_lay.addStretch()
 
         # Switcher
         self.switcher = ViewSwitcher(["month", "week", "day", "year"])
         self.switcher.view_changed.connect(self._on_mode_switched)
-        layout.addWidget(self.switcher)
+        header_lay.addWidget(self.switcher)
+        
+        layout.addLayout(header_lay)
 
         # Stack
         self.stack = QStackedWidget()

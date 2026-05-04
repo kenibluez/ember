@@ -1,4 +1,4 @@
-from PySide6.QtCore import Signal
+from PySide6.QtCore import Signal, Qt
 from PySide6.QtWidgets import QButtonGroup, QLabel, QPushButton, QVBoxLayout, QWidget
 
 
@@ -11,11 +11,11 @@ class Sidebar(QWidget):
         self._setup_ui()
 
     def _setup_ui(self) -> None:
-        layout = QVBoxLayout()
-        layout.setContentsMargins(0, 20, 0, 20)
-        layout.setSpacing(5)
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(0, 0, 0, 20)
+        layout.setSpacing(0)
 
-        logo = QLabel("🔥 Ember")
+        logo = QLabel("🔥 EMBER")
         logo.setObjectName("sidebar-logo")
         layout.addWidget(logo)
 
@@ -33,6 +33,7 @@ class Sidebar(QWidget):
             btn = QPushButton(txt)
             btn.setObjectName("nav-btn")
             btn.setCheckable(True)
+            btn.setCursor(Qt.CursorShape.PointingHandCursor)
             btn.setProperty("key", key)
 
             if key == "dashboard":
@@ -43,4 +44,3 @@ class Sidebar(QWidget):
             btn.clicked.connect(lambda _, k=key: self.nav_changed.emit(k))
 
         layout.addStretch()
-        self.setLayout(layout)

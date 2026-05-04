@@ -22,9 +22,7 @@ class MonthView(QWidget):
         for col, day in enumerate(days):
             lbl = QLabel(day)
             lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
-            lbl.setStyleSheet(
-                f"font-weight: 600; color: {Colors.CINDER}; padding: 10px; background-color: {Colors.CHARCOAL}"
-            )
+            lbl.setObjectName("calendar-header-label")
             self.lay.addWidget(lbl, 0, col)
 
         # Build the 6x7 grid for the current month

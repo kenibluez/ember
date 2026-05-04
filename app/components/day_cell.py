@@ -11,31 +11,32 @@ class DayCell(QWidget):
         super().__init__(parent)
         self.day_number = day_number
         self.events: list = []
+        self.setObjectName("day-cell")
 
         self.lay = QVBoxLayout(self)
-        self.lay.setContentsMargins(5, 5, 5, 5)
+        self.lay.setContentsMargins(8, 8, 8, 8)
+        self.lay.setSpacing(4)
         self.lay.setAlignment(Qt.AlignmentFlag.AlignTop)
 
         self.day_label = QLabel(str(day_number) if day_number != 0 else "")
-        self.day_label.setStyleSheet(
-            f"font-size: 14px; font-weight: bold; color: {Colors.CINDER}; background-color: {Colors.CHARCOAL};"
-        )
+        self.day_label.setObjectName("day-number")
         self.lay.addWidget(self.day_label)
-
-        self.setObjectName("day-cell")
 
     def add_event_dot(self, title: str) -> None:
         """Adds tiny indicator for event"""
         container = QWidget()
         layout = QHBoxLayout(container)
-        layout.setSpacing(5)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.setSpacing(6)
+
         dot = QLabel("")
         dot.setObjectName("dot")
+        dot.setFixedSize(6, 6)
         layout.addWidget(dot)
 
         title_label = QLabel(title)
-        dot.setStyleSheet(f"font-size: 10px; color: {Colors.CINDER};")
+        title_label.setStyleSheet(f"font-size: 11px; color: {Colors.SMOKE};")
         layout.addWidget(title_label)
-        container.setLayout(layout)
+        layout.addStretch()
 
         self.lay.addWidget(container)

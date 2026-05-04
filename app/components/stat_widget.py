@@ -14,15 +14,11 @@ class StatWidget(QWidget):
         layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.value_label = QLabel("0")
-        self.value_label.setStyleSheet(
-            f"background-color: {Colors.BURN}; font-size: 32px; font-weight: bold; color: {Colors.SMOKE};"
-        )
+        self.value_label.setObjectName("stat-value")
         self.value_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.title_label = QLabel(title.upper())
-        self.title_label.setStyleSheet(
-            f"background-color: {Colors.BURN}; font-size: 14px; font-weight: 600; color: {Colors.CHARCOAL};"
-        )
+        self.title_label.setObjectName("stat-title")
         self.title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         layout.addWidget(self.value_label)
