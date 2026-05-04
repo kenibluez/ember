@@ -1,8 +1,6 @@
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QLabel, QVBoxLayout, QWidget
 
-from app.styles.theme import Colors
-
 
 class StatWidget(QWidget):
     def __init__(self, title: str, parent=None) -> None:

@@ -11,7 +11,6 @@ from PySide6.QtWidgets import (
 )
 from app.core.models.task import TaskPriority
 from app.core.schemas.task import TaskCreate
-from app.styles.theme import Colors
 from PySide6.QtCore import QDateTime
 
 class TaskForm(QDialog):

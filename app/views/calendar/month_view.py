@@ -5,7 +5,6 @@ from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QGridLayout, QLabel, QWidget
 
 from app.components.day_cell import DayCell
-from app.styles.theme import Colors
 
 
 class MonthView(QWidget):

@@ -1,6 +1,7 @@
 from PySide6.QtWidgets import QGridLayout, QLabel, QVBoxLayout, QWidget
 
 from app.components.stat_widget import StatWidget
+from app.styles.theme import Colors
 from app.viewmodels.dashboard_vm import DashboardViewModel
 
 

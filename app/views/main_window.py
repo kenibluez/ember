@@ -5,6 +5,7 @@ from app.core.database import SessionLocal
 from app.services.calendar_service import CalendarService
 from app.services.dashboard_service import DashboardService
 from app.services.task_service import TaskService
+from app.styles.theme import Colors
 from app.viewmodels.calendar_vm import CalendarViewModel
 from app.viewmodels.dashboard_vm import DashboardViewModel
 from app.viewmodels.task_vm import TaskViewModel
