@@ -1,5 +1,8 @@
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QTableView, QHeaderView
 from PySide6.QtCore import QAbstractTableModel, Qt, QModelIndex
+from PySide6.QtGui import QColor
+from app.styles.theme import Colors
+from app.core.models.task import TaskStatus, TaskPriority
 
 class TaskTableModel(QAbstractTableModel):
     def __init__(self, tasks=None) -> None:
@@ -14,16 +17,30 @@ class TaskTableModel(QAbstractTableModel):
         return len(self._headers)
 
     def data(self, index: QModelIndex, role: int = Qt.ItemDataRole.DisplayRole):
-        if not index.isValid() or role != Qt.ItemDataRole.DisplayRole:
+        if not index.isValid():
             return None
-        
+            
         task = self._tasks[index.row()]
         col = index.column()
+
+        if role == Qt.ItemDataRole.DisplayRole:
+            if col == 0: return task.status.upper()
+            if col == 1: return task.title
+            if col == 2: return task.priority.upper()
+            if col == 3: return task.due_date.strftime("%Y-%m-%d %H:%M") if task.due_date else "-"
         
-        if col == 0: return task.status.upper()
-        if col == 1: return task.title
-        if col == 2: return task.priority.upper()
-        if col == 3: return task.due_date.strftime("%Y-%m-%d %H:%M") if task.due_date else "-"
+        if role == Qt.ItemDataRole.ForegroundRole:
+            if col == 0: # Status colors
+                if task.status == TaskStatus.TODO: return QColor(Colors.CINDER)
+                if task.status == TaskStatus.IN_PROGRESS: return QColor(Colors.EMBER)
+                if task.status == TaskStatus.DONE: return QColor(Colors.DONE)
+                if task.status == TaskStatus.CANCELLED: return QColor(Colors.BURN)
+            if col == 2: # Priority colors (example)
+                if task.priority == TaskPriority.HIGH: return QColor(Colors.BURN)
+                if task.priority == TaskPriority.MEDIUM: return QColor(Colors.EMBER)
+                if task.priority == TaskPriority.LOW: return QColor(Colors.CINDER)
+            return QColor(Colors.SMOKE)
+
         return None
 
     def headerData(self, section: int, orientation: Qt.Orientation, role: int):
