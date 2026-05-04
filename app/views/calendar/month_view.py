@@ -23,6 +23,7 @@ class MonthView(QWidget):
             lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
             lbl.setObjectName("calendar-header-label")
             self.lay.addWidget(lbl, 0, col)
+            self.lay.setColumnStretch(col, 1)
 
         # Build the 6x7 grid for the current month
         now = datetime.now()
