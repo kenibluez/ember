@@ -1,6 +1,6 @@
-import sys
 import os
-from datetime import datetime, timedelta, UTC
+import sys
+from datetime import UTC, datetime, timedelta
 
 # Add project root to sys.path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -13,7 +13,7 @@ from app.core.models.task import Task, TaskPriority, TaskStatus
 def seed_data():
     # Ensure tables are created
     init_db()
-    
+
     db = SessionLocal()
 
     # Check if data already exists to prevent duplicates
@@ -65,22 +65,22 @@ def seed_data():
         Event(
             title="ESET Business Meets – 5th Edition",
             description="Logistics team duties / aide-de-camp at Keiser Managua campus.",
-            start_time=now + timedelta(days=1, hours=8),  # Starts tomorrow at 8 AM
-            end_time=now + timedelta(days=1, hours=17),  # Ends tomorrow at 5 PM
+            start_dt=now + timedelta(days=1, hours=8),  # Starts tomorrow at 8 AM
+            end_dt=now + timedelta(days=1, hours=17),  # Ends tomorrow at 5 PM
             all_day=True,
         ),
         Event(
             title="Software Engineering Lecture",
             description="Senior I class.",
-            start_time=now - timedelta(days=1, hours=2),  # Happened yesterday
-            end_time=now - timedelta(days=1, hours=0),
+            start_dt=now - timedelta(days=1, hours=2),  # Happened yesterday
+            end_dt=now - timedelta(days=1, hours=0),
             all_day=False,
         ),
         Event(
             title="KaplayJS Game Dev Sprint",
             description="Work on the 'Icy' puzzle-platformer mechanics.",
-            start_time=now + timedelta(hours=3),  # Happens in 3 hours
-            end_time=now + timedelta(hours=6),
+            start_dt=now + timedelta(hours=3),  # Happens in 3 hours
+            end_dt=now + timedelta(hours=6),
             all_day=False,
         ),
     ]

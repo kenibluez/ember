@@ -1,7 +1,10 @@
-from sqlalchemy.orm import Session
-from app.core.repositories.base_repository import BaseRepository
-from app.core.models.event import Event
 from datetime import datetime
+
+from sqlalchemy.orm import Session
+
+from app.core.models.event import Event
+from app.core.repositories.base_repository import BaseRepository
+
 
 class EventRepository(BaseRepository[Event]):
     def __init__(self, session: Session) -> None:

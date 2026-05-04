@@ -1,4 +1,4 @@
-QMainWindow, QWidget {
+QMainWindow {
     background-color: {VOID};
     color: {SMOKE};
     font-family: "Inter";
@@ -63,13 +63,13 @@ QWidget#day-cell {
     border-radius: 8px;
 }
 
-QLabel#dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 999px;
-    background-color: {EMBER};
+QLabel {
+    color: {CINDER};
 }
 
-QLabel {
-    background-color: inherit;
+QLabel#dot {
+    max-width: 5px;
+    max-height: 5px;
+    border-radius: 5px;
+    background-color: {EMBER};
 }

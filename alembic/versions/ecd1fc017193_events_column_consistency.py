@@ -1,8 +1,8 @@
-"""initial_schema
+"""events_column_consistency
 
-Revision ID: 70de8ea573a9
+Revision ID: ecd1fc017193
 Revises: 
-Create Date: 2026-05-02 22:45:31.598998
+Create Date: 2026-05-03 19:55:33.054634
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '70de8ea573a9'
+revision: str = 'ecd1fc017193'
 down_revision: Union[str, Sequence[str], None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -25,8 +25,8 @@ def upgrade() -> None:
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('title', sa.String(length=255), nullable=False),
     sa.Column('description', sa.Text(), nullable=True),
-    sa.Column('start_time', sa.DateTime(), nullable=False),
-    sa.Column('end_time', sa.DateTime(), nullable=False),
+    sa.Column('start_dt', sa.DateTime(), nullable=False),
+    sa.Column('end_dt', sa.DateTime(), nullable=False),
     sa.Column('all_day', sa.Boolean(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), nullable=False),

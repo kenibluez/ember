@@ -18,7 +18,7 @@ class DayCell(QWidget):
 
         self.day_label = QLabel(str(day_number) if day_number != 0 else "")
         self.day_label.setStyleSheet(
-            f"font-size: 14px; font-weight: bold; color: {Colors.CINDER};"
+            f"font-size: 14px; font-weight: bold; color: {Colors.CINDER}; background-color: {Colors.CHARCOAL};"
         )
         self.lay.addWidget(self.day_label)
 
@@ -27,7 +27,7 @@ class DayCell(QWidget):
     def add_event_dot(self, title: str) -> None:
         """Adds tiny indicator for event"""
         container = QWidget()
-        layout = QHBoxLayout(self)
+        layout = QHBoxLayout(container)
         layout.setSpacing(5)
         dot = QLabel("")
         dot.setObjectName("dot")

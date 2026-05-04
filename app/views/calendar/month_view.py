@@ -5,6 +5,7 @@ from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QGridLayout, QLabel, QWidget
 
 from app.components.day_cell import DayCell
+from app.styles.theme import Colors
 
 
 class MonthView(QWidget):
@@ -21,7 +22,9 @@ class MonthView(QWidget):
         for col, day in enumerate(days):
             lbl = QLabel(day)
             lbl.setAlignment(Qt.AlignmentFlag.AlignCenter)
-            lbl.setStyleSheet("font-weight: 600; color: #F2F2F2; padding: 10px;")
+            lbl.setStyleSheet(
+                f"font-weight: 600; color: {Colors.CINDER}; padding: 10px; background-color: {Colors.CHARCOAL}"
+            )
             self.lay.addWidget(lbl, 0, col)
 
         # Build the 6x7 grid for the current month
