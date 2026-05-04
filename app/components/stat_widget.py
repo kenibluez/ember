@@ -8,6 +8,7 @@ class StatWidget(QWidget):
         super().__init__(parent)
         self.setObjectName("stat-card")
         self.setAttribute(Qt.WidgetAttribute.WA_StyledBackground, True)
+        self.setAutoFillBackground(True) # Added for extra reliability
 
         layout = QVBoxLayout(self)
         layout.setContentsMargins(20, 20, 20, 20)

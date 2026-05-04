@@ -8,7 +8,6 @@ from PySide6.QtWidgets import (
 )
 
 from app.components.view_switcher import ViewSwitcher
-from app.styles.theme import Colors
 from app.viewmodels.calendar_vm import CalendarViewModel
 from app.views.calendar.month_view import MonthView
 
@@ -30,9 +29,7 @@ class CalendarView(QWidget):
         # Header
         header_lay = QHBoxLayout()
         header = QLabel("Calendar")
-        header.setStyleSheet(
-            f"font-size: 28px; font-weight: 700; color: {Colors.SMOKE};"
-        )
+        header.setProperty("class", "view-header")
         header_lay.addWidget(header)
         header_lay.addStretch()
 
@@ -47,11 +44,10 @@ class CalendarView(QWidget):
         self.scrollable_area = QScrollArea()
         self.scrollable_area.setWidgetResizable(True)
         self.scrollable_area.setFrameShape(QScrollArea.Shape.NoFrame)
-        self.scrollable_area.setStyleSheet(f"background-color: {Colors.VOID};")
 
         # Stack
         self.stack = QStackedWidget()
-        self.stack.setStyleSheet(f"background-color: {Colors.VOID};")
+        self.stack.setObjectName("main-stack")
         self.month_view = MonthView()
 
         # Placeholders for the other views

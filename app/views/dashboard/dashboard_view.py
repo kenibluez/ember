@@ -21,7 +21,7 @@ class DashboardView(QWidget):
 
         # Header
         header = QLabel("Overview")
-        header.setStyleSheet(f"font-size: 28px; font-weight: 700; color: {Colors.SMOKE}; margin-bottom: 10px;")
+        header.setProperty("class", "view-header")
         layout.addWidget(header)
 
         # Stats Grid

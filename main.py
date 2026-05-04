@@ -15,10 +15,10 @@ def load_stylesheet(app: QApplication) -> None:
 
 def main():
     app = QApplication(sys.argv)
+    load_stylesheet(app)
     app.setApplicationName("Ember")
 
     # Load Styles
-    load_stylesheet(app)
 
     # Setup Tray Icon
     tray = QSystemTrayIcon(

@@ -27,7 +27,7 @@ class TasksView(QWidget):
         header = QHBoxLayout()
         
         title = QLabel("Tasks")
-        title.setStyleSheet(f"font-size: 28px; font-weight: 700; color: {Colors.SMOKE};")
+        title.setProperty("class", "view-header")
         header.addWidget(title)
         header.addSpacing(20)
 

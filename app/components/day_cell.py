@@ -1,8 +1,14 @@
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QPainter
-from PySide6.QtWidgets import QHBoxLayout, QLabel, QStyle, QStyleOption, QVBoxLayout, QWidget, QFrame
-
-from app.styles.theme import Colors
+from PySide6.QtWidgets import (
+    QFrame,
+    QHBoxLayout,
+    QLabel,
+    QStyle,
+    QStyleOption,
+    QVBoxLayout,
+    QWidget,
+)
 
 
 class DayCell(QWidget):
@@ -13,7 +19,9 @@ class DayCell(QWidget):
         self.day_number = day_number
         self.events: list = []
         self.setObjectName("day-cell")
+        self.setAttribute(Qt.WidgetAttribute.WA_StyledBackground, True)
         self.setMinimumWidth(100)
+
         self.setMinimumHeight(180)  # Further increased
 
         self.lay = QVBoxLayout(self)
@@ -38,7 +46,9 @@ class DayCell(QWidget):
         dot_frame.setObjectName("dot")
         dot_frame.setFixedSize(8, 8)
         # Explicit style for reliability
-        dot_frame.setStyleSheet("background-color: #FF6524; border-radius: 4px; border: none;")
+        dot_frame.setStyleSheet(
+            "background-color: #FF6524; border-radius: 4px; border: none;"
+        )
         layout.addWidget(dot_frame)
 
         title_label = QLabel(title)
