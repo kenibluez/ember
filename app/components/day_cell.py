@@ -14,11 +14,11 @@ class DayCell(QWidget):
         self.events: list = []
         self.setObjectName("day-cell")
         self.setMinimumWidth(100)
-        self.setMinimumHeight(150) # Increased for better multi-line support
+        self.setMinimumHeight(180)  # Further increased
 
         self.lay = QVBoxLayout(self)
         self.lay.setContentsMargins(10, 10, 10, 10)
-        self.lay.setSpacing(8)
+        self.lay.setSpacing(10)
         self.lay.setAlignment(Qt.AlignmentFlag.AlignTop)
 
         self.day_label = QLabel(str(day_number) if day_number != 0 else "")
@@ -34,16 +34,18 @@ class DayCell(QWidget):
         layout.setSpacing(8)
         layout.setAlignment(Qt.AlignmentFlag.AlignTop)
 
-        dot = QFrame()
-        dot.setObjectName("dot")
-        dot.setFixedSize(8, 8)
-        # Fallback inline style to ensure visibility
-        dot.setStyleSheet(f"background-color: {Colors.EMBER}; border-radius: 4px;")
-        layout.addWidget(dot)
+        dot_frame = QFrame()
+        dot_frame.setObjectName("dot")
+        dot_frame.setFixedSize(8, 8)
+        # Explicit style for reliability
+        dot_frame.setStyleSheet("background-color: #FF6524; border-radius: 4px; border: none;")
+        layout.addWidget(dot_frame)
 
         title_label = QLabel(title)
         title_label.setObjectName("event-title")
         title_label.setWordWrap(True)
+        # Ensure label doesn't clip
+        title_label.setAlignment(Qt.AlignmentFlag.AlignTop | Qt.AlignmentFlag.AlignLeft)
         layout.addWidget(title_label, stretch=1)
 
         self.lay.addWidget(container)
